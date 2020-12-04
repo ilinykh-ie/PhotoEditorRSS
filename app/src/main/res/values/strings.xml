@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Photo Editor RSS</string>
+    <string name="blur">Размытие</string>
+    <string name="original">Оригинал</string>
+    <string name="black_white">Черно-белый</string>
+    <string name="sketch">Контур</string>
+    <string name="contrast">Контраст</string>
+    <string name="another_rss">Другая лента</string>
+    <string name="invert">Негатив</string>
+</resources>

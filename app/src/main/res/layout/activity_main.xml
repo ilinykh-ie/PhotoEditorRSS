@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.MainActivity">
+
+    <Button
+        android:id="@+id/contrast"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:onClick="setContrastImages"
+        android:paddingLeft="10dp"
+        android:paddingTop="2dp"
+        android:paddingRight="10dp"
+        android:paddingBottom="2dp"
+        android:text="@string/invert"
+        android:textColor="#151515"
+        android:textSize="10sp"
+        app:backgroundTint="#3DCBDA"
+        app:layout_constraintEnd_toEndOf="@+id/blur"
+        app:layout_constraintStart_toStartOf="@+id/blur"
+        app:layout_constraintTop_toBottomOf="@+id/blur" />
+
+    <Button
+        android:id="@+id/sketch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="10dp"
+        android:layout_marginRight="10dp"
+        android:onClick="setSketchImages"
+        android:paddingLeft="10dp"
+        android:paddingTop="2dp"
+        android:paddingRight="10dp"
+        android:paddingBottom="2dp"
+        android:text="@string/sketch"
+        android:textColor="#151515"
+        android:textSize="10sp"
+        app:backgroundTint="#3DCBDA"
+        app:layout_constraintBottom_toBottomOf="@+id/contrast"
+        app:layout_constraintEnd_toStartOf="@+id/contrast" />
+
+    <ScrollView
+        android:id="@+id/scrollView"
+        style="@android:style/Widget.DeviceDefault.Light.ScrollView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="120dp"
+        android:background="#3147D113"
+        android:fillViewport="false"
+        android:scrollbarStyle="outsideInset"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
+
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+
+            />
+    </ScrollView>
+
+    <Button
+        android:id="@+id/original"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="10dp"
+        android:layout_marginRight="10dp"
+        android:onClick="setOriginalImages"
+        android:paddingLeft="10dp"
+        android:paddingTop="2dp"
+        android:paddingRight="10dp"
+        android:paddingBottom="2dp"
+        android:text="@string/original"
+        android:textColor="#151515"
+        android:textSize="10sp"
+        app:backgroundTint="#3DCBDA"
+        app:layout_constraintBottom_toBottomOf="@+id/blur"
+        app:layout_constraintEnd_toStartOf="@+id/blur" />
+
+    <Button
+        android:id="@+id/black_white"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
+        android:onClick="setBlackWhiteImages"
+        android:paddingLeft="10dp"
+        android:paddingTop="2dp"
+        android:paddingRight="10dp"
+        android:paddingBottom="2dp"
+        android:text="@string/black_white"
+        android:textColor="#151515"
+        android:textSize="10sp"
+        app:backgroundTint="#3DCBDA"
+        app:layout_constraintBottom_toBottomOf="@+id/blur"
+        app:layout_constraintStart_toEndOf="@+id/blur" />
+
+    <Button
+        android:id="@+id/blur"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:onClick="setBlurImages"
+        android:paddingLeft="10dp"
+        android:paddingTop="2dp"
+        android:paddingRight="10dp"
+        android:paddingBottom="2dp"
+        android:text="@string/blur"
+        android:textColor="#151515"
+        android:textSize="10sp"
+        app:backgroundTint="#3DCBDA"
+        app:layout_constraintEnd_toEndOf="@+id/scrollView"
+        app:layout_constraintStart_toStartOf="@+id/scrollView"
+        app:layout_constraintTop_toBottomOf="@+id/scrollView" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
