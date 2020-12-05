@@ -7,4 +7,13 @@
     <string name="contrast">Контраст</string>
     <string name="another_rss">Другая лента</string>
     <string name="invert">Негатив</string>
+    <string name="ok">Готово</string>
+    <string name="header">Выберите новостной канал:</string>
+    <string name="habr">Хабр</string>
+    <string name="lenta">Лента</string>
+    <string name="aif">АиФ</string>
+    <string name="kommersant">Коммерсант</string>
+    <string name="yahoo">Yahoo</string>
+    <string name="enter">Или введите URL другого RSS источника:</string>
+    <string name="url">Введите URL</string>
 </resources>

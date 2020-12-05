@@ -3,30 +3,33 @@ package ru.ilinykh_ie.photoeditorrss.controller;
 import android.annotation.SuppressLint;
 import android.os.AsyncTask;
 
-import org.xml.sax.SAXException;
-
-import java.io.IOException;
 import java.util.ArrayList;
-
-import javax.xml.parsers.ParserConfigurationException;
 
 import ru.ilinykh_ie.photoeditorrss.model.News;
 import ru.ilinykh_ie.photoeditorrss.model.RssParser;
 
 public class Controller {
-    private ArrayList<News> news = null;
-    private int latestSendNews = 0;
-    private final RssParser rssParser = new RssParser();
+    private final AsyncRequest asyncRequest;
+    private RssParser rssParser;
 
     public Controller() {
-        AsyncRequest asyncRequest = new AsyncRequest();
+        asyncRequest = new AsyncRequest();
+        execute();
+    }
+
+    public Controller(String url) {
+        asyncRequest = new AsyncRequest(url);
+        execute();
+    }
+
+    private void execute() {
         asyncRequest.execute();
 
-        while (news == null) {
+        while (rssParser == null) {
             Thread t = Thread.currentThread();
+
             try {
                 t.join(500);
-                news = asyncRequest.getList();
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
@@ -34,41 +37,63 @@ public class Controller {
     }
 
     public ArrayList<News> getNews() {
-        if (latestSendNews == news.size()) {
+        ArrayList<News> news = null;
+
+        AsyncNews asyncNews = new AsyncNews();
+        asyncNews.execute();
+
+        while (news == null) {
+            Thread t = Thread.currentThread();
+            try {
+                t.join(500);
+                news = asyncNews.getList();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+
+        if (news.size() == 0) {
             return null;
         }
 
-        ArrayList<News> newsSubList;
-
-        int newsCount = 10;
-
-        if (latestSendNews + newsCount > news.size()) {
-            newsSubList = new ArrayList<>(news.subList(latestSendNews, news.size()));
-            latestSendNews = news.size();
-
-            return newsSubList;
-        }
-
-        newsSubList = new ArrayList<>(news.subList(latestSendNews, latestSendNews + newsCount));
-        latestSendNews += newsCount;
-
-        return newsSubList;
+        return news;
     }
 
     @SuppressLint("StaticFieldLeak")
     @SuppressWarnings("deprecation")
-    class AsyncRequest extends AsyncTask<Void, Void, ArrayList<News>> {
-        private ArrayList<News> list = null;
+    class AsyncRequest extends AsyncTask<Void, Void, Void> {
+        private final boolean isWithoutArguments;
+        private String url;
+
+        public AsyncRequest() {
+            isWithoutArguments = true;
+        }
+
+        public AsyncRequest(String url) {
+            this.url = url;
+            isWithoutArguments = false;
+        }
 
         @Override
-        protected ArrayList<News> doInBackground(Void... voids) {
-            try {
-                list = rssParser.getNews();
-            } catch (IOException | SAXException | ParserConfigurationException e) {
-                e.printStackTrace();
+        protected Void doInBackground(Void... voids) {
+            if (isWithoutArguments) {
+                rssParser = new RssParser();
+            } else {
+                rssParser = new RssParser(url);
             }
+            return null;
+        }
+    }
 
-            return list;
+    @SuppressLint("StaticFieldLeak")
+    @SuppressWarnings("deprecation")
+    class AsyncNews extends AsyncTask<Void, Void, Void> {
+        ArrayList<News> list;
+
+        @Override
+        protected Void doInBackground(Void... voids) {
+            list = rssParser.getNews();
+            return null;
         }
 
         public ArrayList<News> getList() {

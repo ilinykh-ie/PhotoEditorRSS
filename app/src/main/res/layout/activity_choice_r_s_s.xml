@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.ChoiceRSS">
+
+    <TextView
+        android:id="@+id/header2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginRight="20dp"
+        android:text="@string/enter"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
+
+    <Button
+        android:id="@+id/okButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:onClick="onClickOkButton"
+        android:paddingLeft="10dp"
+        android:paddingTop="2dp"
+        android:paddingRight="10dp"
+        android:paddingBottom="2dp"
+        android:text="@string/ok"
+        android:textColor="#151515"
+        android:textSize="14sp"
+        app:backgroundTint="#3DCBDA"
+        app:layout_constraintEnd_toEndOf="@+id/header2"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="@+id/header2"
+        app:layout_constraintTop_toBottomOf="@+id/enteredURL" />
+
+    <RadioGroup
+        android:id="@+id/radioGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        app:layout_constraintStart_toStartOf="@+id/header"
+        app:layout_constraintTop_toBottomOf="@+id/header">
+
+        <RadioButton
+            android:id="@+id/habr"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/habr"
+            tools:layout_editor_absoluteX="137dp"
+            tools:layout_editor_absoluteY="152dp" />
+
+        <RadioButton
+            android:id="@+id/lenta"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/lenta"
+            tools:layout_editor_absoluteX="137dp"
+            tools:layout_editor_absoluteY="152dp" />
+
+        <RadioButton
+            android:id="@+id/yahoo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/yahoo"
+            tools:layout_editor_absoluteX="137dp"
+            tools:layout_editor_absoluteY="152dp" />
+
+        <RadioButton
+            android:id="@+id/kommersant"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/kommersant"
+            tools:layout_editor_absoluteX="137dp"
+            tools:layout_editor_absoluteY="152dp" />
+
+        <RadioButton
+            android:id="@+id/aif"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/aif"
+            tools:layout_editor_absoluteX="137dp"
+            tools:layout_editor_absoluteY="152dp" />
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/header"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginRight="20dp"
+        android:text="@string/header"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/enteredURL"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:ems="10"
+        android:hint="@string/url"
+        android:inputType="text"
+        app:layout_constraintStart_toStartOf="@+id/header2"
+        app:layout_constraintTop_toBottomOf="@+id/header2"
+        tools:ignore="Autofill,TextFields" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

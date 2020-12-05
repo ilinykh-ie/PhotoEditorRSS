@@ -22,7 +22,27 @@
         app:backgroundTint="#3DCBDA"
         app:layout_constraintEnd_toEndOf="@+id/blur"
         app:layout_constraintStart_toStartOf="@+id/blur"
-        app:layout_constraintTop_toBottomOf="@+id/blur" />
+        app:layout_constraintTop_toBottomOf="@+id/blur"
+        tools:ignore="SmallSp" />
+
+    <Button
+        android:id="@+id/anotret_rss"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
+        android:onClick="opesSelectionScreen"
+        android:paddingLeft="10dp"
+        android:paddingTop="2dp"
+        android:paddingRight="10dp"
+        android:paddingBottom="2dp"
+        android:text="@string/another_rss"
+        android:textColor="#151515"
+        android:textSize="10sp"
+        app:backgroundTint="#3DCBDA"
+        app:layout_constraintBottom_toBottomOf="@+id/contrast"
+        app:layout_constraintStart_toEndOf="@+id/contrast"
+        tools:ignore="SmallSp" />
 
     <Button
         android:id="@+id/sketch"
@@ -40,7 +60,8 @@
         android:textSize="10sp"
         app:backgroundTint="#3DCBDA"
         app:layout_constraintBottom_toBottomOf="@+id/contrast"
-        app:layout_constraintEnd_toStartOf="@+id/contrast" />
+        app:layout_constraintEnd_toStartOf="@+id/contrast"
+        tools:ignore="SmallSp" />
 
     <ScrollView
         android:id="@+id/scrollView"
@@ -88,7 +109,8 @@
         android:textSize="10sp"
         app:backgroundTint="#3DCBDA"
         app:layout_constraintBottom_toBottomOf="@+id/blur"
-        app:layout_constraintEnd_toStartOf="@+id/blur" />
+        app:layout_constraintEnd_toStartOf="@+id/blur"
+        tools:ignore="SmallSp" />
 
     <Button
         android:id="@+id/black_white"
@@ -106,7 +128,8 @@
         android:textSize="10sp"
         app:backgroundTint="#3DCBDA"
         app:layout_constraintBottom_toBottomOf="@+id/blur"
-        app:layout_constraintStart_toEndOf="@+id/blur" />
+        app:layout_constraintStart_toEndOf="@+id/blur"
+        tools:ignore="SmallSp" />
 
     <Button
         android:id="@+id/blur"
@@ -124,6 +147,7 @@
         app:backgroundTint="#3DCBDA"
         app:layout_constraintEnd_toEndOf="@+id/scrollView"
         app:layout_constraintStart_toStartOf="@+id/scrollView"
-        app:layout_constraintTop_toBottomOf="@+id/scrollView" />
+        app:layout_constraintTop_toBottomOf="@+id/scrollView"
+        tools:ignore="SmallSp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
